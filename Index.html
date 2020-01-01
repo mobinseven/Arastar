@@ -3,9 +3,147 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>زیباسرای آراستار</title>
+    <meta name="description" content="زیباسرای آراستار با عشق چشم به راه دیدار روی زیباتر از ماه شما بانوان ایران‌زمین است. آرایش مو و گیسوان، آرایش چهره، طراحی ناخن و دیگر کارهای زیبایی خود را به بسپارید.">
+    <link rel="stylesheet" href="assets/css.min.css">
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.8/fullpage.extensions.min.js"></script>
+    <div class="container-fluid px-0">
+        <div id="carouselExampleControls2" class="carousel vert slide" data-interval="false" data-touch="false">
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <div class="d-flex align-items-center justify-content-center min-vh-100">
+                        <img src="ArastarLogo.svg" style="height:725px;max-width:500px;width: expression(this.width > 500 ? 500: true);" />
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="owl-carousel d-flex align-items-center justify-content-center min-vh-100">
+                        <div class="d-flex align-items-center justify-content-center min-vh-100" id="s1">
+                            <h1 class="display-1">Slide 1</h1>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center min-vh-100" id="s2">
+                            <h1 class="display-1">Slide 2</h1>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center min-vh-100" id="s3">
+                            <h1 class="display-1">Slide 3</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-flex align-items-center justify-content-center min-vh-100">
+                        <h1 class="display-1">THREE</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                stagePadding: 0,
+                items: 1,
+            });
+            $('.owl-item').bind('mousewheel', function (e) {
+                if (e.originalEvent.wheelDelta / 120 > 0) {
+                    if ($(this).prevAll().length > 0) {
+                        $(this).parents('.owl-carousel').trigger('prev.owl.carousel');
+                        return false;
+                    }
+                }
+                else {
+                    if ($(this).nextAll().length > 0) {
+                        $(this).parents('.owl-carousel').trigger('next.owl.carousel');
+                        return false;
+                    }
+                }
+            });
+            $('.carousel-item').bind('mousewheel', function (e) {
+                if (e.originalEvent.wheelDelta / 120 > 0) {
+                    if ($(this).prevAll().length > 0) {
+                        $(this).parents(".carousel").carousel("prev");
+                        return false;
+                    }
+                }
+                else {
+                    if ($(this).nextAll().length > 0) {
+                        $(this).parents(".carousel").carousel("next");
+                        return false;
+                    }
+                }
+            });
+            //////////////////////
+            $('.carousel-item').each(function (i) {
+
+                // Create a manager to manager the element
+                var manager = new Hammer.Manager(this);
+
+                // Create a recognizer
+                var Swipe = new Hammer.Swipe();
+
+                // Add the recognizer to the manager
+                manager.add(Swipe);
+
+                manager.on('swipedown', function (e) {
+                    if ($(e.target).parents(".carousel-item.active").length > 0) {
+                        if ($(e.target).parents(".owl-item").length == 0) {
+                            var item = $(e.target).parents(".carousel-item.active")[0];
+                            if ($(item).prevAll().length > 0) {
+                                $(item).parents(".carousel").carousel("prev");
+                                return false;
+                            }
+                        }
+                        else {
+                            var item = $(e.target).parents(".owl-item.active")[0];
+                            if ($(item).prevAll().length > 0) {
+                                $(item).parents('.owl-carousel').trigger('prev.owl.carousel');
+                                return false;
+                            }
+                            else {
+                                var item = $(e.target).parents(".carousel-item.active")[0];
+                                if ($(item).prevAll().length > 0) {
+                                    $(item).parents(".carousel").carousel("prev");
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                });
+
+                manager.on('swipeup', function (e) {
+                    if ($(e.target).parents(".carousel-item.active").length > 0) {
+                        if ($(e.target).parents(".owl-item").length == 0) {
+                            var item = $(e.target).parents(".carousel-item.active")[0];
+                            if ($(item).nextAll().length > 0) {
+                                $(item).parents(".carousel").carousel("next");
+                                return false;
+                            }
+                        }
+                        else {
+                            var item = $(e.target).parents(".owl-item.active")[0];
+                            if ($(item).nextAll().length > 0) {
+                                $(item).parents('.owl-carousel').trigger('next.owl.carousel');
+                                return false;
+                            }
+                            else {
+                                var item = $(e.target).parents(".carousel-item.active")[0];
+                                if ($(item).nextAll().length > 0) {
+                                    $(item).parents(".carousel").carousel("next");
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+
+                });
+            });
+        });
+    </script>
 </body>
 </html>
