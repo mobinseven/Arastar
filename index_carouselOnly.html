@@ -1,0 +1,441 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>زیباسرای آراستار</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="description"
+        content="زیباسرای آراستار با عشق چشم به راه دیدار روی زیباتر از ماه شما بانوان ایران‌زمین است. آرایش مو و گیسوان، آرایش چهره، طراحی ناخن و دیگر کارهای زیبایی خود را به بسپارید.">
+
+    <style>
+        @font-face {
+            font-family: Socicon;
+            src: url(assets/Socicon.woff2);
+        }
+
+        @font-face {
+            font-family: BNazanin;
+            src: url(assets/BNazanin.woff);
+        }
+    </style>
+    <style>
+        :root {
+            --blue: #007bff;
+            --indigo: #6610f2;
+            --purple: #6f42c1;
+            --pink: #e83e8c;
+            --red: #dc3545;
+            --orange: #fd7e14;
+            --yellow: #ffc107;
+            --green: #28a745;
+            --teal: #20c997;
+            --cyan: #17a2b8;
+            --white: #fff;
+            --gray: #6c757d;
+            --gray-dark: #343a40;
+            --primary: #ffc107;
+            --secondary: #6c757d;
+            --success: #28a745;
+            --info: #17a2b8;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --breakpoint-xs: 0;
+            --breakpoint-sm: 576px;
+            --breakpoint-md: 768px;
+            --breakpoint-lg: 992px;
+            --breakpoint-xl: 1200px;
+            --font-family-sans-serif: "-apple-system, BlinkMacSystemFont, "Segoe UI ", Roboto, "Helvetica Neue ", Arial, "Noto Sans ", sans-serif, "Apple Color Emoji ", "Segoe UI Emoji ", "Segoe UI Symbol ", "Noto Color Emoji "";
+            --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: BNazanin, "Times New Roman";
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: left;
+            background-color: #fff
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: .5rem
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1rem
+        }
+
+        a {
+            color: #ffc107;
+            text-decoration: none;
+            background-color: transparent
+        }
+
+        img {
+            vertical-align: middle;
+            border-style: none
+        }
+
+        ::-webkit-file-upload-button {
+            font: inherit;
+            -webkit-appearance: button
+        }
+
+        h1 {
+            margin-bottom: .5rem;
+            font-weight: 500;
+            line-height: 1.2
+        }
+
+        h1 {
+            font-size: 2.5rem
+        }
+
+        .display-1 {
+            font-size: 6rem;
+            font-weight: 300;
+            line-height: 1.2
+        }
+
+        .carousel {
+            position: relative
+        }
+
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            overflow: hidden
+        }
+
+        .carousel-inner::after {
+            display: block;
+            clear: both;
+            content: ""
+        }
+
+        .carousel-item {
+            position: relative;
+            display: none;
+            float: left;
+            width: 100%;
+            margin-right: -100%;
+            backface-visibility: hidden
+        }
+
+        .carousel-item.active {
+            display: block
+        }
+
+        .carousel-fade .carousel-item {
+            opacity: 0;
+            transform: none
+        }
+
+        .carousel-fade .carousel-item.active {
+            z-index: 1;
+            opacity: 1
+        }
+
+        .d-flex {
+            display: flex !important
+        }
+
+        .flex-column {
+            flex-direction: column !important
+        }
+
+        .justify-content-center {
+            justify-content: center !important
+        }
+
+        .justify-content-around {
+            justify-content: space-around !important
+        }
+
+        .align-items-center {
+            align-items: center !important
+        }
+
+        .vh-100 {
+            height: 100vh !important
+        }
+
+        .px-0 {
+            padding-right: 0 !important
+        }
+
+        .px-0 {
+            padding-left: 0 !important
+        }
+
+        .p-2 {
+            padding: .5rem !important
+        }
+    </style>
+    <link rel="stylesheet" href="assets/bootstrap.css">
+    <link rel="stylesheet" href="assets/owl.carousel.min.css">
+
+    <style>
+        .hero {
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: auto 100vh;
+        }
+
+        .contact::after {
+            content: "";
+            z-index: -1;
+            background: no-repeat center top/100vh url('assets/images/lima.svg');
+            opacity: 0.25;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body style="background-color: #04050A; color:#D4A440 !important;">
+    <div class="container-fluid px-0">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="false"
+            data-touch="false">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="d-flex align-items-center justify-content-center" style="height:100vh"><img
+                            src="ArastarGold.svg" style="height:100vmin" />
+                    </div>
+
+                </div>
+                <div class="carousel-item vh-100">
+                    <div class="owl-carousel">
+                        <div class="d-flex align-items-center justify-content-around vh-100">
+                            <h1 class="display-1 " style="font-family:BNazanin; text-align:center">آرایش چهره و مو</h1>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center vh-100 hero"
+                            style="background-image: url('assets/images/ashley.svg');">
+                            <!-- <h1 class="display-1">Slide 2</h1> -->
+                        </div>
+                        <div class="d-flex align-items-center justify-content-around vh-100">
+                            <h1 class="display-1 " style="font-family:BNazanin; text-align:center">طراحی ناحن</h1>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-around vh-100 hero"
+                            style="background-image: url('assets/images/selfie.svg');">
+                        </div>
+                        <div class="d-flex align-items-center justify-content-around vh-100">
+                            <h1 class="display-1 " style="font-family:BNazanin; text-align:center">همه‌ی خدمات زیبایی
+                            </h1>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center vh-100 hero"
+                            style="background-image: url('assets/images/jenner.svg');">
+                            <!-- <h1 class="display-1">Slide 3</h1> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-flex align-items-center flex-column justify-content-center vh-100 contact">
+
+                        <div class="p-2">
+                            <h1 class="display-1 " style="font-family:BNazanin; text-align:center">زیباسرای آراستار</h1>
+                            <p dir="ltr" style="text-align: center;"><span style="font-size: 25pt;"><a
+                                        style="text-decoration: none;font-family:BNazanin"
+                                        href="tel:+989378617084"><span style="font-family: Socicon;"></span>&emsp;+98
+                                        937 86 170 84</a></span></p>
+                            <!--<p dir="ltr" style="text-align: center;"><span style="font-size: 12pt;"><a style="text-decoration: none;" href="https://t.me/tirizhbeauty" target="_blank" rel="noopener noreferrer"><span style="font-family: Socicon;"></span>&emsp;tirizhbeauty</a></span></p>
+                            <p dir="ltr" style="text-align: center;"><span style="font-size: 12pt;"><a style="text-decoration: none;" href="https://instagram.com/tirizhbeauty" target="_blank" rel="noopener noreferrer"><span style="font-family: Socicon;"></span>&emsp;tirizhbeauty</a></span></p>
+                            <p dir="ltr" style="text-align: center;"><span style="font-size: 12pt;"><a style="text-decoration: none;" href="https://www.facebook.com/tirizh" target="_blank" rel="noopener noreferrer"><span style="font-family: Socicon;"></span>&emsp;tirizh</a></span></p>
+                            <p dir="ltr" style="text-align: center;"><span style="font-size: 12pt;"><a style="text-decoration: none;" href="https://www.pinterest.com/tirizh/" target="_blank" rel="noopener noreferrer"><span style="font-family: Socicon;"></span>&emsp;tirizh</a></span></p>-->
+                            <p dir="ltr" style="text-align: center;">
+                                <span style="font-size: 25pt;font-family:'Times New Roman'">
+                                    <span style="font-family: Socicon;"></span>&emsp;
+                                    <script type="text/javascript" language="javascript">
+
+                                        // Email obfuscator script 2.1 by Tim Williams, University of Arizona
+                                        // Random encryption key feature coded by Andrew Moulden
+                                        // This code is freeware provided these four comment lines remain intact
+                                        // A wizard to generate this code is at http://www.jottings.com/obfuscator/
+                                        {
+                                            coded = "WqAjZWj@ZUZujZU.OU"
+                                            key = "K5XnphQZLiju0fgkwEHrzAoCeGPOc3YNSmv6BUIVqb2yM7W84x1aTdtsJRF9lD"
+                                            shift = coded.length
+                                            link = ""
+                                            for (i = 0; i < coded.length; i++) {
+                                                if (key.indexOf(coded.charAt(i)) == -1) {
+                                                    ltr = coded.charAt(i)
+                                                    link += (ltr)
+                                                }
+                                                else {
+                                                    ltr = (key.indexOf(coded.charAt(i)) - shift + key.length) % key.length
+                                                    link += (key.charAt(ltr))
+                                                }
+                                            }
+                                            document.write("<a href='mailto:" + link + "'>" + link + "</a>")
+                                        }
+                                        //-->
+                                    </script><noscript>Sorry, you need Javascript on to email me.</noscript>
+                                </span>
+                            </p>
+
+
+
+                            <p dir="rtl" style="text-align: center;"><span
+                                    style="font-size: 25pt;font-family:BNazanin"><a style="text-decoration: none;"
+                                        href="https://goo.gl/maps/wUxYd9E33tA2" target="_blank"
+                                        rel="noopener noreferrer">تهران، سعادت آباد، بلوار دریا، مطهری شمالی، بن بست
+                                        ساحل یکم، پلاک ۲۱.<span style="font-family: Socicon;">&emsp;</span></a></span>
+                            </p>
+
+
+
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <link rel="stylesheet" href="assets/css.min.css"> -->
+    <script src="assets/js.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            // function setDocHeight() {
+            //     document.documentElement.style.setProperty('--vh', `${window.innerHeight / 100}px`);
+            // };
+
+            // window.addEventListener('resize', function () {
+            //     setDocHeight();
+            // });
+            // window.addEventListener('orientationchange', function () {
+            //     setDocHeight();
+            // });
+
+            // setDocHeight();
+            $('.owl-carousel').owlCarousel({
+                stagePadding: 0,
+                items: 1
+            });
+            $('.owl-item').bind('mousewheel', function (e) {
+                if (e.originalEvent.wheelDelta / 120 > 0) {
+                    if ($(this).prevAll().length > 0) {
+                        $(this).parents('.owl-carousel').trigger('prev.owl.carousel');
+                        return false;
+                    }
+                }
+                else {
+                    if ($(this).nextAll().length > 0) {
+                        $(this).parents('.owl-carousel').trigger('next.owl.carousel');
+                        return false;
+                    }
+                }
+            });
+            $('.carousel-item').bind('mousewheel', function (e) {
+                if (e.originalEvent.wheelDelta / 120 > 0) {
+                    if ($(this).prevAll().length > 0) {
+                        e.stopPropagation();
+                        $(this).parents(".carousel").carousel("prev");
+                        return false;
+                    }
+                }
+                else {
+                    if ($(this).nextAll().length > 0) {
+                        e.stopPropagation();
+                        $(this).parents(".carousel").carousel("next");
+                        return false;
+                    }
+                }
+            });
+            //////////////////////
+            $('.carousel').each(function (i) {
+
+                // Create a manager to manager the element
+                var manager = new Hammer.Manager(this);
+
+                // Create a recognizer
+                var Swipe = new Hammer.Swipe();
+
+                // Add the recognizer to the manager
+                manager.add(Swipe);
+                var downf = function (e) {
+                    if ($(e.target).parents(".carousel-item.active").length > 0) {
+                        if ($(e.target).parents(".owl-item").length == 0) {
+                            var item = $(e.target).parents(".carousel-item.active")[0];
+                            if ($(item).prevAll().length > 0) {
+                                $(item).parents(".carousel").carousel("prev");
+                                return false;
+                            }
+                        }
+                        else {
+                            var item = $(e.target).parents(".owl-item.active")[0];
+                            if ($(item).prevAll().length > 0) {
+                                $(item).parents('.owl-carousel').trigger('prev.owl.carousel');
+                                return false;
+                            }
+                            else {
+                                var item = $(e.target).parents(".carousel-item.active")[0];
+                                if ($(item).prevAll().length > 0) {
+                                    $(item).parents(".carousel").carousel("prev");
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                };
+                var upf = function (e) {
+                    if ($(e.target).parents(".carousel-item.active").length > 0) {
+                        if ($(e.target).parents(".owl-item").length == 0) {
+                            var item = $(e.target).parents(".carousel-item.active")[0];
+                            if ($(item).nextAll().length > 0) {
+                                $(item).parents(".carousel").carousel("next");
+                                return false;
+                            }
+                        }
+                        else {
+                            var item = $(e.target).parents(".owl-item.active")[0];
+                            if ($(item).nextAll().length > 0) {
+                                $(item).parents('.owl-carousel').trigger('next.owl.carousel');
+                                return false;
+                            }
+                            else {
+                                var item = $(e.target).parents(".carousel-item.active")[0];
+                                if ($(item).nextAll().length > 0) {
+                                    $(item).parents(".carousel").carousel("next");
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+
+                };
+                manager.on('swipeup', upf);
+                manager.on('swipeleft', upf);
+                manager.on('swipedown', downf);
+                manager.on('swiperight', downf);
+            });
+        });
+    </script>
+</body>
+
+</html>
