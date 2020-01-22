@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>زیباسرای آراستار</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="description"
+        content="زیباسرای آراستار با عشق چشم به راه دیدار روی زیباتر از ماه شما بانوان ایران‌زمین است. آرایش مو و گیسوان، آرایش چهره، طراحی ناخن و دیگر کارهای زیبایی خود را به بسپارید.">
+
+    <style>
+        @font-face {
+            font-family: Socicon;
+            src: url(assets/Socicon.woff2);
+        }
+
+        @font-face {
+            font-family: BNazanin;
+            src: url(assets/BNazanin.woff);
+        }
+    </style>
+    <link rel="stylesheet" href="assets/bootstrap.css">
+
+    <style>
+        .content {
+            position: absolute;
+            font-size: 5rem;
+            padding: 3rem;
+            direction: rtl;
+            text-align: justify;
+        }
+
+        .sticky-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            height: 2000px;
+            position: relative;
+        }
+
+        svg {
+            height: 100vh;
+            width: 98vw;
+        }
+
+        svg.sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            border-bottom: 1px solid goldenrod;
+        }
+
+        .glow {
+            font-size: 80px;
+            color: #fff;
+            text-align: center;
+            -webkit-animation: glow 1s ease-in-out infinite alternate;
+            -moz-animation: glow 1s ease-in-out infinite alternate;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        @-webkit-keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e6b000, 0 0 40px #e6a900, 0 0 50px #e6d700, 0 0 60px #e69600, 0 0 70px #e6e200;
+            }
+
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #ffb24d, 0 0 40px #ffc14d, 0 0 50px #fff34d, 0 0 60px #ffb24d, 0 0 70px #ffc74d, 0 0 80px #ffc74d;
+            }
+        }
+    </style>
+    <script src="assets/jquery-3.4.1.min.js"></script>
+    <script src="Drawer.js"></script>
+</head>
+
+<body style="background-color: #04050A; color:#D4A440 !important;">
+    <div id="intro"></div>
+    <div class="vh-100">
+        <div class="section active">
+            <div class="d-flex align-items-center justify-content-center" style="height:100vh"><img
+                    src="ArastarGold.svg" style="height:100vmin" />
+            </div>
+        </div>
+        <div class="section">
+
+            <p class="content display-4"><strong>دستی</strong>
+                <span class="h1">
+                    قلمی برمی‌دارد؛
+                    <br />
+                    لبی بوسه‌ای برمی‌گیرد
+                    <br />
+                    گامی قدمی برمی‌نهد.
+                    <br /> همه را عشق می‌جنباند.
+                    <br />
+                    آن عشق
+                    خوش‌سودا؛ عشق
+                    زیبا؛
+                    <br />
+                    عشق به زیبایی.</span>
+            </p>
+            <div class="sticky-container" id="brusher"></div>
+
+        </div>
+        <div class="section">
+            <p class="content display-4"><strong>بر</strong>
+                <span class="h1"> گذر گرماگرم زندگانی خویش،
+                    <br />
+                    آدمی،
+                    <br />
+                    «عاشقِ زیبایی» شد.
+                    <br />
+                    زیبایی را ستود، ارج‌نهاد و
+                    شاید
+                    <br />
+                    پرستید.
+                </span>
+            </p>
+            <div class="sticky-container" id="Mk2"></div>
+
+        </div>
+        <div class="section">
+            <p class="content display-4"><strong>آتشِ </strong>
+                <span class="h1">عشق برافروخته از زیباییست.
+                    <br />
+                    آتشی که جان‌ها گدازد و اندیشه‌ها روشن کند.
+                    <br />
+                    یخ خِرد
+                    را آب کند و خردمند را به جنبش و رقص اندر آرد؛
+                    <br />
+                    چون رقص شعله‌ی گیسوان.
+                    <br />
+                    رقصی بی‌پایان.
+                </span>
+            </p>
+            <div class="sticky-container" id="dancing"></div>
+        </div>
+        <div class="section">
+
+            <p class="content display-4"><strong>زیبایی </strong>
+                <span class="h1">
+                    درون و بیرون که گر جمع آیند
+
+                    <br />
+                    فلک را بشکافند و جهان را گیرند که
+                    <br />
+                    «آری به اتفاق جهان می‌توان
+                    گرفت» .
+                    <br />
+                    زیبایی را نمایان کردن کار هنرمندان است.
+                    <br />
+                    دستی می‌خواهد، آراستار.
+                    <br />
+                </span>
+            </p>
+            <div class="sticky-container" id="ashley"></div>
+        </div>
+        <div class="section">
+            <p class="content display-4">
+                <span class="h1">
+                    دست؟ کدام دست؟
+                    <br />
+                    دستی که بامدادان
+                    شانه‌ای
+                    برمی‌گیرد و گیسوان خواب‌زده را در کشاکشی آرام می‌آراید و طرحی تازه می‌دهد.
+                    <br />
+                    دستی که رُژی را بر آن
+                    لبانِ خندان
+                    می‌نهد و آنان را سرخ‌گون می‌کند.
+                    <br />
+                    دست هنرمندی که خال و خط «چشم جهان‌بین» را می‌نگارد.
+                    <br />
+                    یا «دست گرم
+                    دوستی عاشق
+                    که در شب‌های سرد شهر» دستان ظریفی را می‌پوشاند.
+                </span>
+            </p>
+            <div class="sticky-container" id="lisa"></div>
+        </div>
+        <div class="section">
+            <p class="content display-4">
+                <span class="h1">بانوان ایران‌زمین؛
+                    <br />
+                    هنرمندانی که خویش را می‌آرایید و می‌نمایانید؛
+
+                    <br />
+                    ای نمایندگان امور جدی زندگی که برای آراستن خود پیشینه‌ای دارید به درازای تاریخ؛
+                    <br />
+                    این تلاش مقدس که در پرتوی آن، فراز و نشیب زندگی را برای
+                    <strong>
+                        خود و عاشقان‌تان
+                    </strong>
+                    دل‌چسب و شکیبا می‌سازید.
+
+                    <br />
+                    شما زیبایید.
+                    <br />
+                    دستِ آراستار را به سویتان می‌یازیم.
+                    <br />
+                    دستی بر آتش زیبایی.
+                </span>
+            </p>
+        </div>
+        <div class="section">
+            <span class="display-4"
+                style="position: absolute;bottom: 10rem;right:3rem; font-family:BNazanin; text-align:right">
+                زیباسرای آراستار
+                <br />
+            </span>
+            <h2 style="position: absolute;bottom: 10rem;left: 3rem;">
+                <a style="color: inherit;text-decoration: none;font-family:BNazanin" href="tel:+989378617084">
+                    <span style="font-family: Socicon;"></span>&emsp;+98 937 86 170 84
+                </a>
+                <!-- <br />
+                        <span style="font-family:'Times New Roman'">
+                            <span style="font-family: Socicon;"></span>&emsp;
+                            contact[at]arastar.ir
+                        </span> -->
+            </h2>
+            <div class="sticky-container logo" id="ArastarOutline"></div>
+        </div>
+    </div>
+</body>
+
+</html>

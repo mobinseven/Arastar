@@ -21,206 +21,273 @@
         }
     </style>
     <style>
-        :root {
-            --blue: #007bff;
-            --indigo: #6610f2;
-            --purple: #6f42c1;
-            --pink: #e83e8c;
-            --red: #dc3545;
-            --orange: #fd7e14;
-            --yellow: #ffc107;
-            --green: #28a745;
-            --teal: #20c997;
-            --cyan: #17a2b8;
-            --white: #fff;
-            --gray: #6c757d;
-            --gray-dark: #343a40;
-            --primary: #ffc107;
-            --secondary: #6c757d;
-            --success: #28a745;
-            --info: #17a2b8;
-            --warning: #ffc107;
-            --danger: #dc3545;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --breakpoint-xs: 0;
-            --breakpoint-sm: 576px;
-            --breakpoint-md: 768px;
-            --breakpoint-lg: 992px;
-            --breakpoint-xl: 1200px;
-            --font-family-sans-serif: "-apple-system, BlinkMacSystemFont, "Segoe UI ", Roboto, "Helvetica Neue ", Arial, "Noto Sans ", sans-serif, "Apple Color Emoji ", "Segoe UI Emoji ", "Segoe UI Symbol ", "Noto Color Emoji "";
-            --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
-        }
-
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box
-        }
-
-        html {
-            font-family: sans-serif;
-            line-height: 1.15;
-            -webkit-text-size-adjust: 100%
-        }
-
         body {
-            margin: 0;
             font-family: BNazanin, "Times New Roman";
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #212529;
-            text-align: left;
-            background-color: #fff
-        }
-
-        h1 {
-            margin-top: 0;
-            margin-bottom: .5rem
-        }
-
-        p {
-            margin-top: 0;
-            margin-bottom: 1rem
-        }
-
-        a {
-            color: #ffc107;
-            text-decoration: none;
-            background-color: transparent
-        }
-
-        img {
-            vertical-align: middle;
-            border-style: none
-        }
-
-        ::-webkit-file-upload-button {
-            font: inherit;
-            -webkit-appearance: button
-        }
-
-        h1 {
-            margin-bottom: .5rem;
-            font-weight: 500;
-            line-height: 1.2
-        }
-
-        h1 {
-            font-size: 2.5rem
-        }
-
-        .display-1 {
-            font-size: 6rem;
-            font-weight: 300;
-            line-height: 1.2
-        }
-
-        .carousel {
-            position: relative
-        }
-
-        .carousel-inner {
-            position: relative;
-            width: 100%;
-            overflow: hidden
-        }
-
-        .carousel-inner::after {
-            display: block;
-            clear: both;
-            content: ""
+            margin: 0;
+            background-color: #04050A !important;
+            color: #D4A440 !important;
         }
 
         .carousel-item {
             position: relative;
-            display: none;
-            float: left;
-            width: 100%;
-            margin-right: -100%;
-            backface-visibility: hidden
+            height: -webkit-fill-available;
         }
 
-        .carousel-item.active {
-            display: block
-        }
-
-        .carousel-fade .carousel-item {
-            opacity: 0;
-            transform: none
-        }
-
-        .carousel-fade .carousel-item.active {
-            z-index: 1;
-            opacity: 1
-        }
-
-        .d-flex {
-            display: flex !important
-        }
-
-        .flex-column {
-            flex-direction: column !important
-        }
-
-        .justify-content-center {
-            justify-content: center !important
-        }
-
-        .justify-content-around {
-            justify-content: space-around !important
-        }
-
-        .align-items-center {
-            align-items: center !important
-        }
-
-        .vh-100 {
-            height: 100vh !important
-        }
-
-        .px-0 {
-            padding-right: 0 !important
-        }
-
-        .px-0 {
-            padding-left: 0 !important
-        }
-
-        .p-2 {
-            padding: .5rem !important
-        }
-    </style>
-    <link rel="stylesheet" href="assets/bootstrap.css">
-
-    <style>
         .sticky-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-start;
-            height: 2000px;
+            position: absolute;
+            z-index: -1;
+            top: 55%;
+            left: 45%;
+            transform: translate(-50%, -50%);
+            width: 100vw;
         }
 
         svg {
-            height: 100vh;
-            width: 95vw;
+            display: block;
+            margin: auto;
+            height: 90vh;
+            /* width: 100vw; */
         }
 
-        svg.sticky {
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0;
-            border-bottom: 1px solid goldenrod;
+        .logo svg {
+            width: 100vw;
+        }
+
+        .logo.sticky-container {
+            top: 50%;
+            left: 50%;
+        }
+
+        .content {
+            padding: 3rem;
+            direction: rtl;
+            text-align: justify;
+            height: 100%;
+            height: -webkit-fill-available;
+        }
+
+        p.content {
+            padding-top: 10vh;
+            /* text-shadow: 1px 1px 5px rgb(209, 164, 68), 1px 1px 5px #ccc; */
         }
     </style>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="Drawer.js"></script>
 </head>
 
-<body style="background-color: #04050A; color:#D4A440 !important;">
-    <div id="intro"></div>
-    <div id="main"></div>
+<body>
+
+    <div class="container-fluid px-0">
+        <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false" data-touch="false"
+            data-wrap="false">
+            <div class="carousel-inner vh-100">
+                <div class="carousel-item active">
+                    <div class="d-flex align-items-center justify-content-center" style="height:100vh"><img
+                            src="ArastarGold.svg" style="height:100vmin" />
+                    </div>
+                </div>
+                <div class="carousel-item">
+
+                    <p class="content display-4"><strong>دستی</strong>
+                        <span class="h1">
+                            قلمی برمی‌دارد؛
+                            <br />
+                            لبی بوسه‌ای برمی‌گیرد
+                            <br />
+                            گامی قدمی برمی‌نهد.
+                            <br /> همه را عشق می‌جنباند.
+                            <br />
+                            آن عشق
+                            خوش‌سودا؛ عشق
+                            زیبا؛
+                            <br />
+                            عشق به زیبایی.</span>
+                    </p>
+                    <div class="sticky-container" id="brusher"></div>
+
+                </div>
+                <div class="carousel-item">
+                    <p class="content display-4"><strong>بر</strong>
+                        <span class="h1"> گذر گرماگرم زندگانی خویش،
+                            <br />
+                            آدمی،
+                            <br />
+                            «عاشقِ زیبایی» شد.
+                            <br />
+                            زیبایی را ستود، ارج‌نهاد و
+                            شاید
+                            <br />
+                            پرستید.
+                        </span>
+                    </p>
+                    <div class="sticky-container" id="Mk2"></div>
+
+                </div>
+                <div class="carousel-item">
+                    <p class="content display-4"><strong>آتشِ </strong>
+                        <span class="h1">عشق برافروخته از زیباییست.
+                            <br />
+                            آتشی که جان‌ها گدازد و اندیشه‌ها روشن کند.
+                            <br />
+                            یخ خِرد
+                            را آب کند و خردمند را به جنبش و رقص اندر آرد؛
+                            <br />
+                            چون رقص شعله‌ی گیسوان.
+                            <br />
+                            رقصی بی‌پایان.
+                        </span>
+                    </p>
+                    <div class="sticky-container" id="dancing"></div>
+                </div>
+                <div class="carousel-item">
+
+                    <p class="content display-4"><strong>زیبایی </strong>
+                        <span class="h1">
+                            درون و بیرون که گر جمع آیند
+
+                            <br />
+                            فلک را بشکافند و جهان را گیرند که
+                            <br />
+                            «آری به اتفاق جهان می‌توان
+                            گرفت» .
+                            <br />
+                            زیبایی را نمایان کردن کار هنرمندان است.
+                            <br />
+                            دستی می‌خواهد، آراستار.
+                            <br />
+                        </span>
+                    </p>
+                    <div class="sticky-container" id="ashley"></div>
+                </div>
+                <div class="carousel-item">
+                    <p class="content display-4">
+                        <span class="h1">
+                            دست؟ کدام دست؟
+                            <br />
+                            دستی که بامدادان
+                            شانه‌ای
+                            برمی‌گیرد و گیسوان خواب‌زده را در کشاکشی آرام می‌آراید و طرحی تازه می‌دهد.
+                            <br />
+                            دستی که رُژی را بر آن
+                            لبانِ خندان
+                            می‌نهد و آنان را سرخ‌گون می‌کند.
+                            <br />
+                            دست هنرمندی که خال و خط «چشم جهان‌بین» را می‌نگارد.
+                            <br />
+                            یا «دست گرم
+                            دوستی عاشق
+                            که در شب‌های سرد شهر» دستان ظریفی را می‌پوشاند.
+                        </span>
+                    </p>
+                    <div class="sticky-container" id="lisa"></div>
+                </div>
+                <div class="carousel-item">
+                    <p class="content display-4">
+                        <span class="h1">بانوان ایران‌زمین؛
+                            <br />
+                            هنرمندانی که خویش را می‌آرایید و می‌نمایانید؛
+
+                            <br />
+                            ای نمایندگان امور جدی زندگی که برای آراستن خود پیشینه‌ای دارید به درازای تاریخ؛
+                            <br />
+                            این تلاش مقدس که در پرتوی آن، فراز و نشیب زندگی را برای
+                            <strong>
+                                خود و عاشقان‌تان
+                            </strong>
+                            دل‌چسب و شکیبا می‌سازید.
+
+                            <br />
+                            شما زیبایید.
+                            <br />
+                            دستِ آراستار را به سویتان می‌یازیم.
+                            <br />
+                            دستی بر آتش زیبایی.
+                        </span>
+                    </p>
+                </div>
+                <div class="carousel-item">
+                    <p class="content">
+                        <span class="display-4"
+                            style="position: absolute;bottom: 10rem;right:3rem; font-family:BNazanin; text-align:right">
+                            زیباسرای آراستار
+                            <br />
+                        </span>
+                        <h2 style="position: absolute;bottom: 10rem;left: 3rem;">
+                            <a style="color: inherit;text-decoration: none;font-family:BNazanin"
+                                href="tel:+989378617084">
+                                <span style="font-family: Socicon;"></span>&emsp;+98 937 86 170 84
+                            </a>
+                            <!-- <br />
+                        <span style="font-family:'Times New Roman'">
+                            <span style="font-family: Socicon;"></span>&emsp;
+                            contact[at]arastar.ir
+                        </span> -->
+                        </h2>
+                    </p>
+                    <div class="sticky-container logo" id="ArastarOutline"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="assets/bootstrap.css">
+    <script src="assets/jquery-3.4.1.min.js"></script>
+    <script src="assets/js.min.js"></script>
+    <!-- <script src="Drawer.js"></script> -->
+    <script src="AutoPlay.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('.carousel-item').bind('mousewheel', function (e) {
+                if (e.originalEvent.wheelDelta / 120 > 0) {
+                    if ($(this).prevAll().length > 0) {
+                        e.stopPropagation();
+                        $(this).parents(".carousel").carousel("prev");
+                        return false;
+                    }
+                }
+                else {
+                    if ($(this).nextAll().length > 0) {
+                        e.stopPropagation();
+                        $(this).parents(".carousel").carousel("next");
+                        return false;
+                    }
+                }
+            });
+            //////////////////////
+            $('.carousel').each(function (i) {
+
+                // Create a manager to manager the element
+                var manager = new Hammer.Manager(this);
+
+                // Create a recognizer
+                var Swipe = new Hammer.Swipe();
+
+                // Add the recognizer to the manager
+                manager.add(Swipe);
+                var downf = function (e) {
+                    if ($(e.target).parents(".carousel-item.active").length > 0) {
+                        var item = $(e.target).parents(".carousel-item.active")[0];
+                        if ($(item).prevAll().length > 0) {
+                            $(item).parents(".carousel").carousel("prev");
+                            return false;
+                        }
+                    }
+                };
+                var upf = function (e) {
+                    if ($(e.target).parents(".carousel-item.active").length > 0) {
+                        var item = $(e.target).parents(".carousel-item.active")[0];
+                        if ($(item).nextAll().length > 0) {
+                            $(item).parents(".carousel").carousel("next");
+                            return false;
+                        }
+                    }
+
+                };
+                manager.on('swipeup', upf);
+                // manager.on('swipeleft', upf);
+                manager.on('swipedown', downf);
+                // manager.on('swiperight', downf);
+            });
+        });
+    </script>
 </body>
 
 </html>
