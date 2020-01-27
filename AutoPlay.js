@@ -10,12 +10,16 @@ window.CreateSvgElementInContainer = function (url, ContainerId) {
         //$(svgElem).addClass("sticky");
         $(svgElem).find("path").each(function () {
             var path = this;
+            $(path).css("stroke-width", 1);
+            if (path.style.filter != "")
+                return;
             $(path).removeAttr("class");
             $(path).attr("fill", "none");
             var length = path.getTotalLength();
             path.style.strokeDasharray = length;
             path.style.strokeDashoffset = length;
             $(path).css("stroke", "#D4A440");
+            //     $(path).css("animation", "glow 5s infinite 2s ease");
         });
         $(svgElem).children("title").remove();
         $("#" + ContainerId).append(svgElem);
@@ -27,7 +31,7 @@ $(document).ready(function () {
     // CreateSvgElementInContainer("assets/images/lima.svg", "lima");
     CreateSvgElementInContainer("assets/images/Mk2.svg", "Mk2");
     CreateSvgElementInContainer("assets/images/brusher.svg", "brusher");
-    CreateSvgElementInContainer("assets/images/dancing.svg", "dancing");
+    CreateSvgElementInContainer("assets/images/dancing2.svg", "dancing");
     CreateSvgElementInContainer("assets/images/ashley.svg", "ashley");
     CreateSvgElementInContainer("assets/images/lisa.svg", "lisa");
     CreateSvgElementInContainer("assets/images/ArastarOutline.svg", "ArastarOutline");
@@ -42,11 +46,11 @@ $(document).ready(function () {
     });
     $('#carousel').on('slide.bs.carousel', function () {
         var lastSvg = $('#carousel').find('.active').find('svg')[0];
-        console.log(lastSvg);
         $(lastSvg).find('path').each(function () {
+            if (this.style.filter != "")
+                return;
             $(this).clearQueue().finish();
             this.style.strokeDashoffset = this.getTotalLength();
-            $(this).css("stroke-dashoffset", this.getTotalLength());
 
         });
     });

@@ -10,6 +10,20 @@
         content="زیباسرای آراستار با عشق چشم به راه دیدار روی زیباتر از ماه شما بانوان ایران‌زمین است. آرایش مو و گیسوان، آرایش چهره، طراحی ناخن و دیگر کارهای زیبایی خود را به بسپارید.">
 
     <style>
+        @keyframes glow {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
         @font-face {
             font-family: Socicon;
             src: url(assets/Socicon.woff2);
@@ -30,6 +44,7 @@
 
         .carousel-item {
             position: relative;
+            display: block;
             height: -webkit-fill-available;
         }
 
@@ -53,16 +68,16 @@
             width: 100vw;
         }
 
-        .logo.sticky-container {
-            top: 50%;
-            left: 50%;
+        .logo {
+            z-index: -1;
+            top: 0;
         }
 
         .content {
             padding: 3rem;
             direction: rtl;
             text-align: justify;
-            height: 100%;
+            height: 100vh;
             height: -webkit-fill-available;
         }
 
@@ -70,6 +85,20 @@
             padding-top: 10vh;
             /* text-shadow: 1px 1px 5px rgb(209, 164, 68), 1px 1px 5px #ccc; */
         }
+
+        /* border-radius: 5%; */
+
+        /* .carousel-item {
+            box-shadow:
+                inset 0 0 50px #fff,
+                inset 0 0 80px #f0f,
+                inset 0 0 80px #0ff,
+                inset 0 0 30px #f0f,
+                inset 0 0 30px #0ff,
+                0 0 50px #fff,
+                0 0 80px #f0f,
+                0 0 80px #0ff;
+        } */
     </style>
 </head>
 
@@ -204,7 +233,7 @@
                     </p>
                 </div>
                 <div class="carousel-item">
-                    <p class="content">
+                    <div style="position: absolute;bottom: 0rem;width: 100vw;">
                         <span class="display-4"
                             style="position: absolute;bottom: 10rem;right:3rem; font-family:BNazanin; text-align:right">
                             زیباسرای آراستار
@@ -221,8 +250,9 @@
                             contact[at]arastar.ir
                         </span> -->
                         </h2>
-                    </p>
-                    <div class="sticky-container logo" id="ArastarOutline"></div>
+
+                    </div>
+                    <div class="logo" id="ArastarOutline"></div>
                 </div>
             </div>
         </div>
@@ -235,22 +265,21 @@
     <script>
 
         $(document).ready(function () {
-            $('.carousel-item').bind('mousewheel', function (e) {
-                if (e.originalEvent.wheelDelta / 120 > 0) {
-                    if ($(this).prevAll().length > 0) {
-                        e.stopPropagation();
-                        $(this).parents(".carousel").carousel("prev");
-                        return false;
+            var MouseCarousel = function (e) {
+                var active = $('.carousel-item.active')[0];
+                if (e.deltaY < 0) {
+                    if ($(active).prevAll().length > 0) {
+                        $(active).parents(".carousel").carousel("prev");
                     }
                 }
                 else {
-                    if ($(this).nextAll().length > 0) {
-                        e.stopPropagation();
-                        $(this).parents(".carousel").carousel("next");
-                        return false;
+                    if ($(active).nextAll().length > 0) {
+                        $(active).parents(".carousel").carousel("next");
                     }
                 }
-            });
+            };
+            window.onwheel = MouseCarousel;
+
             //////////////////////
             $('.carousel').each(function (i) {
 
