@@ -40,45 +40,47 @@ $(document).ready(function() {
     CreateSvgElementInContainer("assets/images/ArastarOutline.svg", "logo");
 
     $("#carousel").on("slid.bs.carousel", function() {
-        $("#carousel")
+        var svgElem = $("#carousel")
             .find(".active")
-            .find("svg")
+            .find("svg")[0];
+        var pathsCount = $(svgElem).find("path").length;
+        $(svgElem)
             .find("path")
             .each(function() {
-                // $(this).animate({ "stroke-dashoffset": 0 }, {
-                //     queue: true,
-                //     duration: 5000,
-                // }, function() {
-                //     // Animation complete.
-                //   });
+                var path = this;
+                $(svgElem).queue("paths", function() {
+                    $(path).animate(
+                        { "stroke-dashoffset": 0 },
+                        {
+                            duration: 3000 / pathsCount,
+                            complete: function() {
+                                $(svgElem).dequeue("paths");
+                            }
+                        }
+                    );
+                });
                 // $(this).css("animation", "dash 5s linear forwards");
-                this.style.WebkitAnimation = "dash 5s linear forwards";
-                this.style.animation = "dash 5s linear forwards";
+                // this.style.WebkitAnimation = "dash 5s linear forwards";
+                // this.style.animation = "dash 5s linear forwards";
             });
-        var first = $("#carousel")
-            .find(".active")
-            .find("svg")
-            .find("path")[0];
+        $(svgElem).dequeue("paths");
+        // var first = $("#carousel")
+        //     .find(".active")
+        //     .find("svg")
+        //     .find("path")[0];
 
-        first.addEventListener("animationend", function() {
-            console.log($("#carousel")
-            .find(".active")
-            .find("svg")
-            .find("defs>filter#inset>:nth-child(6)")[0]);
-            $("#carousel")
-                .find(".active")
-                .find("svg")
-                .find("defs>filter#inset>:nth-child(6)")[0].style.WebkitAnimation =
-                "glow 10s infinite 2s ease";
-            $("#carousel")
-                .find(".active")
-                .find("svg")
-                .find("defs>filter#inset>:nth-child(6)")[0].style.animation = "glow 10s infinite 2s ease";
-            $("#carousel")
-                .find(".active")
-                .find("svg")
-                .find("g")
-                .attr("filter", "url(#inset)");
+        $(svgElem).queue("paths", function() {
+            if ($(svgElem).find("defs>filter").length > 0) {
+                $(svgElem).find(
+                    "defs>filter#inset>:nth-child(6)"
+                )[0].style.WebkitAnimation = "glow 10s infinite 2s ease";
+                $(svgElem).find(
+                    "defs>filter#inset>:nth-child(6)"
+                )[0].style.animation = "glow 10s infinite 2s ease";
+                $(svgElem)
+                    .find("g")
+                    .attr("filter", "url(#inset)");
+            }
         });
     });
     $("#carousel").on("slide.bs.carousel", function() {
@@ -86,13 +88,29 @@ $(document).ready(function() {
             .find(".active")
             .find("svg")[0];
         $(lastSvg)
+            .clearQueue("paths")
+            .finish();
+        if ($(lastSvg).find("defs>filter").length > 0) {
+            $(lastSvg).find(
+                "defs>filter#inset>:nth-child(6)"
+            )[0].style.WebkitAnimation = "";
+            $(lastSvg).find(
+                "defs>filter#inset>:nth-child(6)"
+            )[0].style.animation = "";
+            $(lastSvg)
+                .find("g")
+                .attr("filter", "");
+        }
+        $(lastSvg)
             .find("path")
             .each(function() {
                 // if (this.style.filter != "")
                 //     return;
-                // $(this).clearQueue().finish();
+                $(this)
+                    .clearQueue()
+                    .finish();
                 this.style.strokeDashoffset = this.getTotalLength();
-                $(this).css("animation", "");
+                // $(this).css("animation", "");
             });
     });
 });
