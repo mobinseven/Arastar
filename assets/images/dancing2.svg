@@ -12,7 +12,7 @@
    <feFlood flood-color="rgb(255,205,0)" flood-opacity="0" result="result92"/>
    <feBlend in2="result92" mode="multiply" result="result93"/>
    <feComposite in2="result94" operator="in" result="result95"/>
-   <feComposite in2="SourceGraphic"/>
+   <feComposite in="result95" in2="SourceGraphic" operator="over"/>
   </filter>
  </defs>
  <title>dancing</title>

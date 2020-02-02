@@ -29,6 +29,10 @@
                 color: #d4a440 !important;
             }
 
+            .carousel {
+                z-index: 10;
+            }
+
             .carousel-item {
                 position: relative;
                 display: block;
@@ -38,22 +42,24 @@
             .sticky-container {
                 position: absolute;
                 z-index: -1;
-                top: 55%;
+                /* top: 55%;
                 left: 45%;
-                transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%); */
+                bottom: 0;
                 width: 100vw;
             }
 
             svg {
                 display: block;
                 margin: auto;
-                height: 85vh;
+                height: 60vh;
                 /* width: 100vw; */
             }
 
             #logo svg {
                 height: 60vmin;
             }
+
             path {
                 /* stroke-dasharray: 1000;
   stroke-dashoffset: 1000; */
@@ -66,37 +72,13 @@
                     stroke-dashoffset: 0;
                 }
             }
+
             @-webkit-keyframes dash {
                 to {
                     stroke-dashoffset: 0;
                 }
             }
-            @keyframes glow {
-                0% {
-                    flood-opacity: 0;
-                }
 
-                50% {
-                    flood-opacity: 1;
-                }
-
-                100% {
-                    flood-opacity: 0;
-                }
-            }
-            @-webkit-keyframes glow {
-                0% {
-                    flood-opacity: 0;
-                }
-
-                50% {
-                    flood-opacity: 1;
-                }
-
-                100% {
-                    flood-opacity: 0;
-                }
-            }
             .content {
                 padding: 3rem;
                 direction: rtl;
@@ -129,7 +111,13 @@
     </head>
 
     <body>
-        <div class="container-fluid px-0">
+        <div
+            class="d-flex align-items-center justify-content-center"
+            style="height:100vh"
+        >
+            <img src="ArastarGold.svg" style="height:100vmin" />
+        </div>
+        <div id="main" class="container-fluid px-0">
             <div
                 id="carousel"
                 class="carousel slide"
@@ -144,7 +132,7 @@
                             class="d-flex align-items-center justify-content-center"
                             style="height:100vh"
                         >
-                            <img src="ArastarGold.svg" style="height:100vmin" />
+                            <!-- <img src="ArastarGold.svg" style="height:100vmin" /> -->
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -181,7 +169,7 @@
                                 پرستید.
                             </span>
                         </p>
-                        <div class="sticky-container" id="Mk2"></div>
+                        <div class="sticky-container" id="love"></div>
                     </div>
                     <div class="carousel-item">
                         <p class="content">
@@ -218,7 +206,7 @@
                                 <br />
                             </span>
                         </p>
-                        <div class="sticky-container" id="ashley"></div>
+                        <div class="sticky-container" id="beauty"></div>
                     </div>
                     <div class="carousel-item">
                         <p class="content">
@@ -239,34 +227,51 @@
                                 دستان ظریفی را می‌پوشاند.
                             </span>
                         </p>
-                        <div class="sticky-container" id="lisa"></div>
+                        <div class="sticky-container" id="hands"></div>
                     </div>
                     <div class="carousel-item">
                         <p class="content">
-                            <span
-                                >بانوان ایران‌زمین؛
+                            <span>
+                                بانوان ایران‌زمین؛
                                 <br />
                                 هنرمندانی که خویش را می‌آرایید و می‌نمایانید؛
-
                                 <br />
                                 ای نمایندگان امور جدی زندگی که برای آراستن خود
-                                پیشینه‌ای دارید به درازای تاریخ؛
+                                پیشینه‌ای دارید
                                 <br />
+                                به درازای تاریخ؛
+                                <br />
+                            </span>
+                        </p>
+                        <div class="sticky-container" id="persian-style"></div>
+                    </div>
+                    <div class="carousel-item">
+                        <p class="content">
+                            <span>
                                 این تلاش مقدس که در پرتوی آن، فراز و نشیب زندگی
                                 را برای
+                                <br />
                                 <strong>
                                     خود و عاشقان‌تان
                                 </strong>
+                                <br />
                                 دل‌چسب و شکیبا می‌سازید.
 
                                 <br />
                                 شما زیبایید.
-                                <br />
+                            </span>
+                        </p>
+                        <div class="sticky-container" id="persian-smile"></div>
+                    </div>
+                    <div class="carousel-item">
+                        <p class="content">
+                            <span>
                                 دستِ آراستار را به سویتان می‌یازیم.
                                 <br />
                                 دستی بر آتش زیبایی.
                             </span>
                         </p>
+                        <div class="sticky-container" id="persian-sky"></div>
                     </div>
                     <div class="carousel-item" style="padding-top: 10vh ;">
                         <p
@@ -295,18 +300,26 @@
         </div>
         <link rel="stylesheet" href="assets/bootstrap.css" />
         <script src="assets/jquery-3.4.1.min.js"></script>
-        <script src="assets/js.min.js"></script>
+        <script src="assets/d3.v5.min.js"></script>
+
+        <script src="assets/bootstrap.min.js"></script>
         <!-- <script src="Drawer.js"></script> -->
         <script src="AutoPlay.js"></script>
         <script>
             $(document).ready(function() {
+                //$('html, body').animate({scrollTop: 0}, 0);//$("#main").offset().top
+                
+
                 var MouseCarousel = function(e) {
                     var active = $(".carousel-item.active")[0];
                     if (e.deltaY < 0) {
                         if ($(active).prevAll().length > 0) {
+                            e.preventDefault();
                             $(active)
                                 .parents(".carousel")
                                 .carousel("prev");
+                        } else {
+                            $("html, body").animate({ scrollTop: 0 }, 600);
                         }
                     } else {
                         if ($(active).nextAll().length > 0) {
@@ -316,56 +329,80 @@
                         }
                     }
                 };
-                window.onwheel = MouseCarousel;
-
+                var main = document.getElementById("main");
+                main.onwheel = MouseCarousel;
                 //////////////////////
-                $(".carousel").each(function(i) {
-                    // Create a manager to manager the element
-                    var manager = new Hammer.Manager(this);
+                // Create a manager to manager the element
+                var manager = new Hammer.Manager(main);
 
-                    // Create a recognizer
-                    var Swipe = new Hammer.Swipe();
+                // Create a recognizer
+                var Swipe = new Hammer.Swipe();
 
-                    // Add the recognizer to the manager
-                    manager.add(Swipe);
-                    var downf = function(e) {
-                        if (
-                            $(e.target).parents(".carousel-item.active")
-                                .length > 0
-                        ) {
-                            var item = $(e.target).parents(
-                                ".carousel-item.active"
-                            )[0];
-                            if ($(item).prevAll().length > 0) {
-                                $(item)
-                                    .parents(".carousel")
-                                    .carousel("prev");
-                                return false;
-                            }
+                // Add the recognizer to the manager
+                manager.add(Swipe);
+                var downf = function(e) {
+                    if (
+                        $(e.target).parents(".carousel-item.active").length > 0
+                    ) {
+                        var item = $(e.target).parents(
+                            ".carousel-item.active"
+                        )[0];
+                        if ($(item).prevAll().length > 0) {
+                            $(item)
+                                .parents(".carousel")
+                                .carousel("prev");
+                            return false;
                         }
-                    };
-                    var upf = function(e) {
-                        if (
-                            $(e.target).parents(".carousel-item.active")
-                                .length > 0
-                        ) {
-                            var item = $(e.target).parents(
-                                ".carousel-item.active"
-                            )[0];
+                    }
+                    $("html, body").animate({ scrollTop: 0 }, 600);
+                };
+                var upf = function(e) {
+                    var scrollBottom =
+                        $(document).height() -
+                        $(window).height() -
+                        $(window).scrollTop();
+                    // alert(scrollBottom);
+                    if (
+                        $(e.target).parents(".carousel-item.active").length > 0
+                    ) {
+                        var item = $(e.target).parents(
+                            ".carousel-item.active"
+                        )[0];
+
+                        if (scrollBottom < 200)
                             if ($(item).nextAll().length > 0) {
                                 $(item)
                                     .parents(".carousel")
                                     .carousel("next");
                                 return false;
                             }
-                        }
-                    };
-                    manager.on("swipeup", upf);
-                    // manager.on('swipeleft', upf);
-                    manager.on("swipedown", downf);
-                    // manager.on('swiperight', downf);
-                });
+                    }
+                    return true;
+                };
+                manager.on("swipeup", upf);
+                // manager.on('swipeleft', upf);
+                manager.on("swipedown", downf);
+                // manager.on('swiperight', downf);
+                $("html, body").scrollTop(0);
+                $(this).scrollTop(0);
+                window.scrollTo(0, 0);
             });
+        </script>
+        <script>
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker
+                    .register("./sw.js", { scope: "./" })
+                    .then(reg => {
+                        // registration worked
+                        console.log(
+                            "Registration succeeded. Scope is " + reg.scope
+                        );
+                    })
+                    .catch(error => {
+                        // registration failed
+                        console.log("Registration failed with " + error);
+                    });
+            }
         </script>
     </body>
 </html>
