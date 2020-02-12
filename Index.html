@@ -302,13 +302,38 @@
         <script src="assets/jquery-3.4.1.min.js"></script>
         <script src="assets/d3.v5.min.js"></script>
 
-        <script src="assets/bootstrap.min.js"></script>
+        <script src="assets/js.min.js"></script>
         <!-- <script src="Drawer.js"></script> -->
         <script src="AutoPlay.js"></script>
         <script>
             $(document).ready(function() {
                 //$('html, body').animate({scrollTop: 0}, 0);//$("#main").offset().top
-                
+                $("html, body").bind(
+                    "scroll mousedown wheel DOMMouseScroll mousewheel keyup",
+                    function(evt) {
+                        // detect only user initiated, not by an .animate though
+                        if (
+                            evt.type === "DOMMouseScroll" ||
+                            evt.type === "keyup" ||
+                            evt.type === "mousewheel"
+                        ) {
+                            // up
+                            if (
+                                evt.originalEvent.detail < 0 ||
+                                (evt.originalEvent.wheelDelta &&
+                                    evt.originalEvent.wheelDelta > 0)
+                            ) {
+                                // down.
+                            } else if (
+                                evt.originalEvent.detail > 0 ||
+                                (evt.originalEvent.wheelDelta &&
+                                    evt.originalEvent.wheelDelta < 0)
+                            ) {
+                                console.log("jumps");
+                            }
+                        }
+                    }
+                );
 
                 var MouseCarousel = function(e) {
                     var active = $(".carousel-item.active")[0];
@@ -383,9 +408,9 @@
                 // manager.on('swipeleft', upf);
                 manager.on("swipedown", downf);
                 // manager.on('swiperight', downf);
-                $("html, body").scrollTop(0);
-                $(this).scrollTop(0);
-                window.scrollTo(0, 0);
+                // $("html, body").scrollTop(0);
+                // $(this).scrollTop(0);
+                // window.scrollTo(0, 0);
             });
         </script>
         <script>

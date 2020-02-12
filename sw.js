@@ -1,5 +1,5 @@
 //A version number is useful when updating the worker logic, allowing you to remove outdated cache entries
-var version = "v1::2";
+var version = "v1::3";
 self.addEventListener("install", function(event) {
     console.log("WORKER: install event in progress.");
     event.waitUntil(
@@ -28,7 +28,7 @@ self.addEventListener("install", function(event) {
                     "/assets/bootstrap.css",
                     "/assets/BNazanin.woff",
                     "/assets/Socicon.woff2",
-                    "assets/bootstrap.min.js",
+                    "assets/js.min.js",
                     "assets/d3.v5.min.js"
                 ]);
             })
